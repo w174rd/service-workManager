@@ -4,9 +4,12 @@ object Attributes {
 
     object workerName {
         const val periodicWorker = "PeriodicWorker"
+        const val foregroundWorker = "ForegroundWorker"
     }
 
     object pushNotif {
-        const val channelWorkManager = "channelWorkManager"
+        const val channelBackgroundWorkManager = "channelWorkManager"
+        const val channelForegroundWorkManager = "channelWorkManager"
+        const val channelForegroundService = "channelForegroundService"
     }
 }

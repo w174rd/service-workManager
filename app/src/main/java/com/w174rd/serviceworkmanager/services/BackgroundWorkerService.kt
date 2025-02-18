@@ -9,14 +9,14 @@ import androidx.work.WorkerParameters
 import com.w174rd.serviceworkmanager.R
 import com.w174rd.serviceworkmanager.utils.Attributes
 
-class BackgroundWorker(context: Context, workerParams: WorkerParameters) :
+class BackgroundWorkerService(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
 
     override fun doWork(): Result {
         Log.d("BackgroundWorker", "Task dimulai di background")
 
         // Tampilkan notifikasi saat worker berjalan
-        showNotification("Worker Berjalan", "Sinkronisasi data sedang berlangsung...")
+        showNotification("Background Worker Berjalan", "Sinkronisasi data sedang berlangsung...")
 
         // Simulasi pekerjaan
         Thread.sleep(3000) // Jangan gunakan di produksi
@@ -24,7 +24,7 @@ class BackgroundWorker(context: Context, workerParams: WorkerParameters) :
         Log.d("BackgroundWorker", "Task selesai di background")
 
         // Tampilkan notifikasi selesai
-        showNotification("Worker Selesai", "Sinkronisasi data selesai!")
+        showNotification("Background Worker Selesai", "Sinkronisasi data selesai!")
 
         return Result.success()
     }
@@ -33,7 +33,7 @@ class BackgroundWorker(context: Context, workerParams: WorkerParameters) :
         val notificationManager =
             applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        val notification = NotificationCompat.Builder(applicationContext, Attributes.pushNotif.channelWorkManager)
+        val notification = NotificationCompat.Builder(applicationContext, Attributes.pushNotif.channelBackgroundWorkManager)
             .setContentTitle(title)
             .setContentText(message)
             .setSmallIcon(R.drawable.ic_launcher_foreground)

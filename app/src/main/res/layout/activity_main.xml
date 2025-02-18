@@ -38,7 +38,7 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/btn_start_bg_service"
+                        android:id="@+id/btn_start_bg_worker_service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/holo_blue_dark"
@@ -46,11 +46,11 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="20dp"
-                        android:text="Start Background Service"
+                        android:text="Start Background Worker Service"
                         android:textColor="@android:color/white" />
 
                     <TextView
-                        android:id="@+id/btn_stop_bg_service"
+                        android:id="@+id/btn_stop_bg_worker_service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -59,7 +59,52 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="20dp"
-                        android:text="Stop Background Service"
+                        android:text="Stop Background Worker Service"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/btn_start_fg_worker_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_dark"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="20dp"
+                        android:text="Start Foreground Worker Service"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/btn_stop_fg_worker_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/holo_red_light"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="20dp"
+                        android:text="Stop Foreground Worker Service"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
@@ -86,12 +131,12 @@
                         android:id="@+id/btn_start_fg_service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/holo_green_dark"
+                        android:background="@android:color/holo_orange_dark"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="20dp"
-                        android:text="Start Forground Service"
+                        android:text="Start Foreground Service"
                         android:textColor="@android:color/white" />
 
                     <TextView
@@ -104,7 +149,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="20dp"
-                        android:text="Stop Forground Service"
+                        android:text="Stop Foreground Service"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>

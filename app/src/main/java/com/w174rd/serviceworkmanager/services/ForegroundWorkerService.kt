@@ -16,11 +16,9 @@ class ForegroundWorkerService(context: Context, workerParams: WorkerParameters) 
     override suspend fun doWork(): Result {
         setForeground(createForegroundInfo())
 
-        Log.d("ForegroundWorker", "Foreground task dimulai")
-
         // Simulasi pekerjaan yang berjalan di foreground
-        for (i in 1..5) {
-            Log.d("ForegroundWorker", "Proses $i")
+        while (true) {
+            Log.d("ForegroundWorker", "Service berjalan...")
             delay(1000)
         }
 
@@ -31,7 +29,7 @@ class ForegroundWorkerService(context: Context, workerParams: WorkerParameters) 
     private fun createForegroundInfo(): ForegroundInfo {
         val notification = NotificationCompat.Builder(applicationContext, Attributes.pushNotif.channelForegroundWorkManager)
             .setContentTitle("Foreground Worker")
-            .setContentText("Sedang berjalan...")
+            .setContentText("Worker berjalan di latar belakang")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setOngoing(true)
             .build()

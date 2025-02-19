@@ -11,29 +11,39 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.w174rd.serviceworkmanager.R
 import com.w174rd.serviceworkmanager.utils.Attributes
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 class ForegroundService : Service() {
 
+    private val serviceScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+
     override fun onCreate() {
         super.onCreate()
-        startForeground(1, createNotification()) // Jalankan service dengan notifikasi
+        startForeground(3, createNotification()) // Jalankan service dengan notifikasi
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Simulasi pekerjaan yang berjalan terus menerus
-        Thread {
-            while (true) {
+        serviceScope.launch {
+            while (isActive) {
                 Log.d("ForegroundService", "Service berjalan...")
-                Thread.sleep(3000) // Simulasi pekerjaan
+                delay(3000)
             }
-        }.start()
+        }
 
         return START_STICKY // Agar service tetap hidup jika sistem mematikannya
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("MyForegroundService", "Service dihentikan!")
+        serviceScope.cancel()
+        Log.d("ForegroundService", "Service dihentikan!")
     }
 
     override fun onBind(intent: Intent?): IBinder? {

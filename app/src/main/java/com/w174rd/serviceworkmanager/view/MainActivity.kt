@@ -44,14 +44,14 @@ class MainActivity : AppCompatActivity() {
                 ).build()
 
                 WorkManager.getInstance(this@MainActivity).enqueueUniquePeriodicWork(
-                    Attributes.workerName.periodicWorker,
-                    ExistingPeriodicWorkPolicy.KEEP,
+                    Attributes.workerName.backgroundWorker,
+                    ExistingPeriodicWorkPolicy.KEEP, // Menjaga schedule yang sudah ada
                     periodicWorkRequest
                 )
             }
 
             btnStopBgWorkerService.setOnClickListener {
-                WorkManager.getInstance(this@MainActivity).cancelUniqueWork(Attributes.workerName.periodicWorker)
+                WorkManager.getInstance(this@MainActivity).cancelUniqueWork(Attributes.workerName.backgroundWorker)
             }
 
             btnStartFgWorkerService.setOnClickListener {

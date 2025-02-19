@@ -3,7 +3,7 @@ package com.w174rd.serviceworkmanager.utils
 object Attributes {
 
     object workerName {
-        const val periodicWorker = "PeriodicWorker"
+        const val backgroundWorker = "BackgroundWorker"
         const val foregroundWorker = "ForegroundWorker"
     }
 
